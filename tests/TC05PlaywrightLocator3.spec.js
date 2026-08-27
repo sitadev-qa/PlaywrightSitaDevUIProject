@@ -8,7 +8,12 @@ test.describe('Playwright Form Filling Scenario', () => {
         await page.getByRole('textbox', { name: 'Last Name' }).fill("QA");
         await page.getByRole('textbox', { name: 'name@example.com' }).fill('noreply@gmail.com');
         await page.getByRole('button', { name: 'Submit' }).click();
+
+        //isvisible
+        //isselected
+        //ischecked
         
+        //await page.locator("CSS LOCATOR/XPATH LOCATOR").click();
         
     })
 
