@@ -44,6 +44,7 @@ Validate all the menu item is visible or not
 
 
 
+
 Assignment - 20th Aug
 
 https://selectorshub.com/ - Plugin URL - You need to try diff Plugin
@@ -204,3 +205,13 @@ Indexes
 Absolute XPath
 
 If you're preparing for Selenium interviews, the most important XPath concepts to know are //, @attribute, text(), contains(), starts-with(), and/or, parent, ancestor, following-sibling, preceding-sibling, and XPath indexes.
+
+
+//Assignment - 31st Aug
+
+https://parabank.parasoft.com/parabank/register.htm
+
+1. Do not fill anything and click Register
+2. Password and Confirm Password Mismatch
+3. Password Lenght - 1
+4. Do not fill confirm password and Click Register 
