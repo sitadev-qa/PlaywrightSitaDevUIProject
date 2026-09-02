@@ -215,3 +215,7 @@ https://parabank.parasoft.com/parabank/register.htm
 2. Password and Confirm Password Mismatch
 3. Password Lenght - 1
 4. Do not fill confirm password and Click Register 
+
+
+//Assignment - 1st Sep
+1. All the method for Array.
