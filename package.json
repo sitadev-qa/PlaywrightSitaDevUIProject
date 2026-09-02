@@ -10,13 +10,14 @@
     "test:report": "npx playwright show-report",
     "test-chrome": "npx playwright test --project=chromium",
     "test-firefox": "npx playwright test --project=firefox",
-    "test-webkit": "npx playwright test --project=webkit"     
+    "test-webkit": "npx playwright test --project=webkit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.1.2"
   }
