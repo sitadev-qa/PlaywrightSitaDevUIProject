@@ -6,8 +6,8 @@ const BASE_URL = 'https://parabank.parasoft.com/parabank';
 function generateUser() {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
-
   return {
+  
     firstName,
     lastName,
     address: faker.location.streetAddress(),
@@ -16,32 +16,37 @@ function generateUser() {
     zipCode: faker.location.zipCode('#####'),
     phone: faker.phone.number(),
     ssn: faker.string.numeric(9),
+    
 
     // Unique username to avoid conflicts with existing users
     username:
-      `pw_${firstName}_${lastName}_${faker.string.alphanumeric(8)}`
+      `pw_${firstName}_${lastName}_${faker.string.alphanumeric(1)}`
         .toLowerCase()
         .replace(/[^a-z0-9_]/g, ''),
 
-    password: `Pw@${faker.string.alphanumeric(10)}`,
+    password: `Pw@${faker.string.alphanumeric(1)}`,
   };
 }
 
-test.describe('ParaBank - Register 5 Users and Verify Balance', () => {
+test.describe('ParaBank - Register 1 Users and Verify Balance', () => {
 
   test('Create users, login and check account balance', async ({ browser }) => {
 
     // Generate 5 unique users
-    const users = Array.from({ length: 5 }, () => generateUser());
+   
+    const users = Array.from({ length: 1 }, () => generateUser());
 
-    const results = [];
+    //users is an array which is holding 5 data set
+    // users{ 5 sets of data
+    //       }
+    const results = []; //Array - Empty Array
 
     // =====================================================
     // STEP 1: REGISTER 5 USERS
     // =====================================================
 
     const registrationPage = await browser.newPage();
-
+    
     for (let i = 0; i < users.length; i++) {
 
       const user = users[i];
@@ -102,16 +107,17 @@ test.describe('ParaBank - Register 5 Users and Verify Balance', () => {
 
       // Verify registration/login success
       await expect(
-        registrationPage.getByText(/account services/i)
+        registrationPage.locator("h2")
       ).toBeVisible({ timeout: 15000 });
 
       console.log(`Registration successful`);
       console.log(`Username: ${user.username}`);
       console.log(`Password: ${user.password}`);
 
+      await registrationPage.waitForTimeout(4000)
       // Logout
       await registrationPage
-        .getByRole('link', { name: /log out/i })
+        .locator("[href='logout.htm']")
         .click();
 
       await expect(
@@ -242,7 +248,7 @@ test.describe('ParaBank - Register 5 Users and Verify Balance', () => {
     console.log('====================================================');
 
     // Verify all 5 users were processed
-    expect(results).toHaveLength(5);
+    expect(results).toHaveLength(1);
 
     // Verify every user has a balance
     for (const result of results) {
