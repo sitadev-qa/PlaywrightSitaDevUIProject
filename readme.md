@@ -220,4 +220,131 @@ https://parabank.parasoft.com/parabank/register.htm
 //Assignment - 1st Sep
 1. All the method for Array.
 2. All the method for String Class
-3. 10 Programs on JAVASCRIPs -
+3. 10 Programs on JAVASCRIPs
+
+Beginner Level
+1. Reverse a String
+Write a JavaScript program to reverse a given string.
+
+Example:
+
+Input:  "JavaScript"
+Output: "tpircSavaJ"
+
+2. Check Even or Odd
+Write a program that accepts a number and checks whether it is even or odd.
+
+Example:
+
+Input:  25
+Output: Odd
+
+3. Find the Largest Number
+Write a program to find the largest number among three numbers.
+
+Example:
+
+Input: 10, 25, 15
+Output: 25
+
+4. Count Vowels
+Write a program to count the number of vowels (a, e, i, o, u) in a string.
+
+Example:
+
+Input:  "Automation"
+Output: 6
+
+5. Check Palindrome
+Write a program to check whether a string is a palindrome.
+
+Example:
+
+Input:  "madam"
+Output: Palindrome
+
+Input:  "hello"
+Output: Not a Palindrome
+
+Advanced Level
+6. Find Duplicate Elements in an Array
+Write a program to find all duplicate values in an array.
+
+Example:
+
+Input:
+[10, 20, 30, 20, 40, 10, 50]
+
+Output:
+[10, 20]
+
+7. Find the Second Largest Number
+Write a program to find the second-largest unique number in an array without using a built-in sorting method.
+
+Example:
+
+Input:
+[10, 50, 30, 80, 60]
+
+Output:
+60
+
+8. Count Frequency of Each Character
+Write a program that counts how many times each character occurs in a string.
+
+Example:
+
+Input:
+"javascript"
+
+Output:
+j: 1
+a: 2
+v: 1
+s: 1
+c: 1
+r: 1
+i: 1
+p: 1
+t: 1
+
+9. Find Missing Number
+You are given an array containing numbers from 1 to N, but one number is missing.
+
+Write a program to find the missing number.
+
+Example:
+
+Input:
+[1, 2, 3, 5, 6]
+
+Output:
+4
+
+Challenge: Try solving it without using nested loops.
+
+10. Group Objects by Property
+Given an array of employee objects, group the employees based on their department.
+
+Input:
+
+[
+  { name: "John", department: "IT" },
+  { name: "Alice", department: "HR" },
+  { name: "Bob", department: "IT" },
+  { name: "David", department: "Finance" },
+  { name: "Sarah", department: "HR" }
+]
+
+Expected Output:
+
+IT:
+  John
+  Bob
+
+HR:
+  Alice
+  Sarah
+
+Finance:
+  David
