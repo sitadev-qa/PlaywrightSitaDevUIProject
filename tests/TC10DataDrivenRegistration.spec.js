@@ -42,7 +42,7 @@ test.describe('ParaBank - Register 1 Users and Verify Balance', () => {
     const results = []; //Array - Empty Array
 
     // =====================================================
-    // STEP 1: REGISTER 5 USERS
+    // STEP 1: REGISTER 1 USERS
     // =====================================================
 
     const registrationPage = await browser.newPage();
@@ -181,6 +181,14 @@ test.describe('ParaBank - Register 1 Users and Verify Balance', () => {
       // =================================================
       // Get Account Number
       // =================================================
+
+      //Table
+      //Row
+      //Col
+      //Table Header
+      // td - table data
+      // th - table header
+      // tr - table row
 
       const firstRow = page
         .locator('#accountTable tbody tr')

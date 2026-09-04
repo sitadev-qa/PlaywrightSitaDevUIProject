@@ -219,3 +219,5 @@ https://parabank.parasoft.com/parabank/register.htm
 
 //Assignment - 1st Sep
 1. All the method for Array.
+2. All the method for String Class
+3. 10 Programs on JAVASCRIPs -
