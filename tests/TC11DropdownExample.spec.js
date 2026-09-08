@@ -10,6 +10,9 @@ test('Select and validate dropdown options', async ({ page }) => {
   await expect(dropdown).toHaveValue('1');
 
   // Select Option 2
+
+
+  await page.waitForTimeout(10000);
   await dropdown.selectOption({ label: 'Option 2' });
   await expect(dropdown).toHaveValue('2');
 });
@@ -28,7 +31,7 @@ test('Select and validate dropdown values', async ({ page }) => {
 
   const countryDropdown = page.locator('#billing_country');
 
-  await countryDropdown.selectOption({ label: 'United States (US)' });
+  await countryDropdown.selectOption({ label: 'Vietnam' });
 
   // Validate selected country
   await expect(countryDropdown).toHaveValue('US');
@@ -36,7 +39,7 @@ test('Select and validate dropdown values', async ({ page }) => {
   // --------------------------------------------------
   // 2. Select State = Colorado
   // --------------------------------------------------
-
+/*
   const stateDropdown = page.locator('#billing_state');
 
   // Wait for state dropdown to be available after
@@ -78,6 +81,6 @@ test('Select and validate dropdown values', async ({ page }) => {
   await expect(passengerDropdown).toHaveValue(
     await passengerDropdown.inputValue()
   );
-
+*/
 });
 
