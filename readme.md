@@ -348,3 +348,14 @@ HR:
 
 Finance:
   David
+
+
+
+
+Assignment  =  Admin - Job - Module - 11th Sept
+- Job title
+- Employment Status
+- Pay Grade
+- Job Categories
+- Work Shift
+

@@ -34,6 +34,7 @@ import { test, expect } from '@playwright/test';
 // });
 
 test('Crud Operation on User Management - Save, Update and Delete', async ({ page }) => {
+  test.setTimeout(150000);
   //Test Data - Data being used for Testing Purpose
   const user = {
     userRole: 'ESS',
@@ -59,37 +60,56 @@ test('Crud Operation on User Management - Save, Update and Delete', async ({ pag
     await page.getByRole('option', { name: user.employeeName }).click();
     let valTimestamp = Date.now();
     user.username = user.username + valTimestamp;
+    user.updatedUsername = user.username + '_updated';
     await page.getByRole('textbox').nth(2).fill(user.username);
     await page.getByRole('textbox').nth(3).fill(user.password);
     await page.getByRole('textbox').nth(4).fill(user.password);
     await page.getByRole('button', { name: 'Save' }).click();
-    
-  })
+
+    await page.waitForURL('**/admin/viewSystemUsers', { timeout: 15000 });
+    await expect(page.getByRole('heading', { name: 'System Users' })).toBeVisible();
+    await expect.poll(async () => {
+      return await page.locator('.oxd-table-card').filter({ hasText: user.username }).count();
+    }, { timeout: 15000 }).toBeGreaterThan(0);
+  });
 
   // ------------------------------------------------Update the User------------------------------------------------------------
 
-  await test.step('Delete the User and Save the data', async () => {
+  await test.step('Update the same user', async () => {
+    const userRow = page.locator('.oxd-table-card').filter({ hasText: user.username });
+    await expect(userRow).toBeVisible();
 
-    // demo12121789135787088 is created and now we need to identify the row and perform the delete flow for that user in UI
+    await userRow
+      .getByRole('button')
+      .filter({ has: page.locator('i.bi-pencil-fill') })
+      .click();
 
-   //[role="rowgroup"] - It is highlighting all the data which got created
-   //[class="oxd-table-card"] - It is highlighting all the rows which are present
-   //[class="oxd-table-card"] - I need to go to the row where Username = demo12121789135787088 and then click on the delete button
-   await page.waitForTimeout(4000);
-   // await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers');
-    const rows = await page.$$('div[role="rowgroup"] div[class="oxd-table-card"]');
-    //Difference between $$ and $ is that $$ returns an array of elements, while $ returns the first matching element. In this case, we want to get all the rows, so we use $$ to get an array of row elements.
-    // Loop through each row to find the one with the matching username
-    for (const row of rows) {
-      const usernameCell = await row.$('div[class="oxd-table-cell oxd-padding-cell"]:nth-child(2)');
-      const usernameText = await usernameCell?.innerText();
-      console.log(usernameText);
-      if (usernameText === user.username) {
-        // Found the matching row, now click the delete button
-        const deleteButton = await row.$('[type="button"]').nth(0);
-        await deleteButton?.click();
-        break; // Exit the loop after deleting the user
-      }
-    }
-  })
+    await expect(page.getByRole('heading', { name: 'Edit User' })).toBeVisible();
+    await page.getByRole('textbox').nth(2).fill(user.updatedUsername);
+    await page.getByRole('button', { name: 'Save' }).click();
+
+    await page.waitForURL('**/admin/viewSystemUsers', { timeout: 30000 });
+    await expect(page.getByRole('heading', { name: 'System Users' })).toBeVisible();
+    await expect.poll(async () => {
+      return await page.locator('.oxd-table-card').filter({ hasText: user.updatedUsername }).count();
+    }, { timeout: 20000 }).toBeGreaterThan(0);
+    await expect(page.getByRole('cell', { name: user.username, exact: true })).not.toBeVisible();
+  });
+
+  // ------------------------------------------------Delete the User------------------------------------------------------------
+
+  await test.step('Delete the same user', async () => {
+    const userRow = page.locator('.oxd-table-card').filter({ hasText: user.updatedUsername });
+    await expect(userRow).toBeVisible();
+
+    const rowCheckbox = userRow.getByRole('checkbox');
+    await rowCheckbox.check({ force: true });
+    await page.getByRole('button', { name: 'Delete Selected' }).click();
+
+    const confirmationDialog = page.getByRole('dialog');
+    await expect(confirmationDialog).toBeVisible();
+    await confirmationDialog.getByRole('button', { name: 'Yes, Delete' }).click();
+
+    await expect(page.getByRole('cell', { name: user.updatedUsername })).not.toBeVisible();
+  });
 })
