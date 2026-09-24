@@ -17,6 +17,7 @@ test.describe('Tabs & Accordion', () => {
     await frame.locator('#tabs a[href="#tabs-3"]').click();
     await expect(frame.locator('#tabs-3')).toBeVisible();
     await expect(frame.locator('#tabs li').nth(2)).toHaveAttribute('aria-selected', 'true');
+    await expect(frame.locator('#tabs li').nth(2)).toHaveAttribute('aria-expanded', 'true');
   });
 
   test('expand accordion sections one at a time', async ({ page }) => {

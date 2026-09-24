@@ -10,7 +10,7 @@ test('select multiple items with modifier keys', async ({ page }) => {
   await items.nth(0).click();
   await items.nth(2).click({ modifiers: ['ControlOrMeta'] });
   await items.nth(4).click({ modifiers: ['ControlOrMeta'] });
-
+  
   const selected = frame.locator('#selectable li.ui-selected');
   await expect(selected).toHaveCount(3);
   console.log('Selected:', await selected.allInnerTexts());
