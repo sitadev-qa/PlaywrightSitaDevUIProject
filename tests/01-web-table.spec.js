@@ -46,6 +46,7 @@ test.describe('Web Tables', () => {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
 
     const amounts = await page.locator('.tableFixHead tbody tr td:nth-child(4)').allInnerTexts();
+    console.log(amounts);// ["25", "50", "25", "100", "50", "46"]
     const sum = amounts.reduce((acc, v) => acc + Number(v.trim()), 0);
 
     const totalText = await page.locator('.totalAmount').innerText(); // "Total Amount Collected: 296"
@@ -65,7 +66,10 @@ test.describe('Web Tables', () => {
     for (let i = 0; i < count; i++) {
       const course = (await rows.nth(i).locator('td').nth(1).innerText()).trim();
       const price = (await rows.nth(i).locator('td').nth(2).innerText()).trim();
-      if (price === '25') matches.push(course);
+      if (price === '25') 
+        {
+          matches.push(course);
+        }
     }
     console.log('Courses priced 25:', matches);
     expect(matches.length).toBeGreaterThan(0);

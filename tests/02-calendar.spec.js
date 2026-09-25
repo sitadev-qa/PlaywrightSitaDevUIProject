@@ -37,8 +37,8 @@ test.describe('Calendar / Date Picker', () => {
   test('select a FUTURE date (3 months ahead)', async ({ page }) => {
     const frame = page.frameLocator('iframe.demo-frame');
     const target = new Date();
-    target.setDate(15);
-    target.setMonth(target.getMonth() + 3);
+    target.setDate(25); //Date value is 25
+    target.setMonth(target.getMonth() + 3); //Month value updated to Dec
 
     await frame.locator('#datepicker').click();
     await expect(frame.locator('#ui-datepicker-div')).toBeVisible();
