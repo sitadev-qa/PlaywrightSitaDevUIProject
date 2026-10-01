@@ -359,3 +359,22 @@ Assignment  =  Admin - Job - Module - 11th Sept
 - Job Categories
 - Work Shift
 
+
+// AI + Copilot + Github Copilot + Ollama + Cursor + Claude + ChatGPT + PostBot + N Number of Models
+
+// Large Language Model 
+// Canva
+// ShopiFy
+// Database
+
+// Mongo DB, DBeaver, PGAdmin, Postgress, MYSQL
+// QA Domain - UI and API Automation 
+
+// LLM Understanding Links
+Link 1 - https://www.youtube.com/watch?v=LPZh9BOjkQs
+Link 2 - https://www.youtube.com/watch?v=gsyTL1cq_4o
+
+
+// Prompt Engineering Understanding Links
+
+Link 1 - https://www.youtube.com/watch?v=YhRfgYH_AoU
