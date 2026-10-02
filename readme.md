@@ -378,3 +378,20 @@ Link 2 - https://www.youtube.com/watch?v=gsyTL1cq_4o
 // Prompt Engineering Understanding Links
 
 Link 1 - https://www.youtube.com/watch?v=YhRfgYH_AoU
+
+
+//Structure of POM - Style of Writing Code
+
+//Page Object
+   Buzz - OrangeHRMS_BuzzPage.js
+   Buzz - Page Elements(Web Element) + Page Actions
+   Claim - Claim
+         -  OrangeHRMS_ConfigurationEvent.js
+         -  OrangeHRMS_ConfigurationExpenseType.js
+         -  OrangeHRMS_SubmitClaim.js
+         -  OrangeHRMS_MyClaims.js
+         -  OrangeHRMS_EmployeeClaim.js
+         -  OrangeHRMS_AssignClaim.js
+         
+   Claim - Page Element(Web Element) + Page Actions
+
